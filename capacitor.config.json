@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "COVID-19: Risk Calculator",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
