@@ -303,6 +303,7 @@ export default {
       api: "https://covidcalculator.herokuapp.com/api",
       push: false,
       data: new Data(),
+      loged: false,
 
       //User data
       userData: [],
@@ -358,8 +359,8 @@ export default {
       for (let i = 0; i < this.datos.length; i++) {
         const element = this.datos[i];
         if (element.user == this.lgUser || element.email == this.lgUser) {
-          console.log("usuario encontrado");
           user = element.user;
+          console.log(user);
         }
       }
     },
