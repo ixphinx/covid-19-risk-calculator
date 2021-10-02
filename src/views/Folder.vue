@@ -18,14 +18,36 @@
 
       <div id="container" v-if="$route.params.id == 'Inicio'">
         <!--// INICIO //-->
-        <strong class="capitalize">{{ $route.params.id }}</strong>
         <ion-card>
           <ion-card-header>
             <ion-card-title>Login</ion-card-title>
           </ion-card-header>
 
           <ion-card-content>
-            
+            <div class="input-group input-group-sm mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-sm"
+                >User / email</span
+              >
+              <input
+                type="text"
+                class="form-control"
+                aria-label="User / email"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+            <div class="input-group input-group-sm mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-sm"
+                >Password</span
+              >
+              <input
+                type="password"
+                class="form-control"
+                aria-label="Password"
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+            <button class="btn btn-primary btn-sm">Login</button> 
+            <a class="register">Register</a>
           </ion-card-content>
         </ion-card>
         <!--// CONTENIDO AQUI XD //-->
@@ -84,6 +106,12 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/vue";
+
+class Data {
+  constructor {
+    
+  }
+}
 
 export default {
   name: "Folder",
@@ -144,5 +172,11 @@ export default {
 
 #container a {
   text-decoration: none;
+}
+
+.register{
+  margin-left: 20%;
+  font-size: 80%;
+  color: #098ae6;
 }
 </style>
