@@ -16,15 +16,65 @@
         </ion-toolbar>
       </ion-header>
 
-      <div id="container">
+      <div id="container" v-if="$route.params.id == 'Inicio'">
+        <!--// INICIO //-->
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Login</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            
+          </ion-card-content>
+        </ion-card>
+        <!--// CONTENIDO AQUI XD //-->
       </div>
+
+      <div id="container" v-if="$route.params.id == 'Usuario'">
+        <!--// USUARIO //-->
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        <!--// CONTENIDO AQUI XD //-->
+      </div>
+
+      <div id="container" v-if="$route.params.id == 'Estadisticas'">
+        <!--// ESTADISTICAS //-->
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        <!--// CONTENIDO AQUI XD //-->
+      </div>
+
+      <div id="container" v-if="$route.params.id == 'Previsiones'">
+        <!--// PREVISIONES //-->
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        <!--// CONTENIDO AQUI XD //-->
+      </div>
+
+      <div id="container" v-if="$route.params.id == 'Riesgo'">
+        <!--// CALCULO DE RIESGO //-->
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        <!--// CONTENIDO AQUI XD //-->
+      </div>
+
+      <div id="container" v-if="$route.params.id == 'Configuracion'">
+        <!--// CONFIGURACIONES //-->
+        <strong class="capitalize">{{ $route.params.id }}</strong>
+        <!--// CONTENIDO AQUI XD //-->
+      </div>
+
+      <!--// BOTON FLOTANTE //-->
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="dark" @click="$router.push('Home')">
+          <i class="fas fa-home"></i>
+        </ion-fab-button>
+      </ion-fab>
+      <!--// BOTON FLOTANTE END //-->
     </ion-content>
   </ion-page>
 </template>
 
-<script lang="js">
+<script>
+import axios from "axios";
+
 import {
   IonButtons,
   IonContent,
@@ -47,21 +97,26 @@ export default {
     IonToolbar,
   },
 
-  data(){
+  data() {
     return {
+      datos: [],
+      api: "https://covidcalculator.herokuapp.com/api",
       push: false,
-    }
+    };
   },
 
-  created(){
+  created() {
     this.load();
+    axios.get(this.api).then((res) => {
+      this.datos = res.data;
+    });
   },
 
   methods: {
-    load(){
-      console.log("loading...");
-    }
-  }
+    load() {
+      this.datos = [];
+    },
+  },
 };
 </script>
 

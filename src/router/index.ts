@@ -4,7 +4,7 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
-    redirect: '/folder/Inbox'
+    redirect: '/folder/Home'
   },
   {
     path: '/folder/:id',
@@ -18,3 +18,7 @@ const router = createRouter({
 })
 
 export default router
+
+
+
+

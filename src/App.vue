@@ -4,8 +4,8 @@
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi@ionicframework.com</ion-note>
+            <ion-list-header><img src="assets/img/covid_logo.png" width="50" alt=""> Health Companion</ion-list-header>
+            <ion-note>Coders Logia TM</ion-note>
   
             <ion-menu-toggle auto-hide="false" v-for="(p, i) in appPages" :key="i">
               <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
@@ -16,7 +16,7 @@
           </ion-list>
   
           <ion-list id="labels-list">
-            <ion-list-header>Labels</ion-list-header>
+            <ion-list-header>Etiquetas</ion-list-header>
   
             <ion-item v-for="(label, index) in labels" lines="none" :key="index">
               <ion-icon slot="start" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
@@ -34,7 +34,7 @@
 import { IonApp, IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu, IonMenuToggle, IonNote, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { archiveOutline, archiveSharp, bookmarkOutline, bookmarkSharp, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { fitnessOutline, fitnessSharp, bookmarkOutline, bookmarkSharp, barChartOutline, barChartSharp, homeOutline, homeSharp, personOutline, personSharp, constructOutline, constructSharp, scaleOutline, scaleSharp } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'App',
@@ -56,43 +56,43 @@ export default defineComponent({
     const selectedIndex = ref(0);
     const appPages = [
       {
-        title: 'Inbox',
-        url: '/folder/Inbox',
-        iosIcon: mailOutline,
-        mdIcon: mailSharp
+        title: 'Inicio',
+        url: '/folder/Inicio',
+        iosIcon: homeOutline,
+        mdIcon: homeSharp
       },
       {
-        title: 'Outbox',
-        url: '/folder/Outbox',
-        iosIcon: paperPlaneOutline,
-        mdIcon: paperPlaneSharp
+        title: 'Usuario',
+        url: '/folder/Usuario',
+        iosIcon: personOutline,
+        mdIcon: personSharp
       },
       {
-        title: 'Favorites',
-        url: '/folder/Favorites',
-        iosIcon: heartOutline,
-        mdIcon: heartSharp
+        title: 'Estadisticas',
+        url: '/folder/Estadisticas',
+        iosIcon: barChartOutline,
+        mdIcon: barChartSharp
       },
       {
-        title: 'Archived',
-        url: '/folder/Archived',
-        iosIcon: archiveOutline,
-        mdIcon: archiveSharp
+        title: 'Previsiones',
+        url: '/folder/Previsiones',
+        iosIcon: fitnessOutline,
+        mdIcon: fitnessSharp
       },
       {
-        title: 'Trash',
-        url: '/folder/Trash',
-        iosIcon: trashOutline,
-        mdIcon: trashSharp
+        title: 'Cálculo de riesgo',
+        url: '/folder/Riesgo',
+        iosIcon: scaleOutline,
+        mdIcon: scaleSharp
       },
       {
-        title: 'Spam',
-        url: '/folder/Spam',
-        iosIcon: warningOutline,
-        mdIcon: warningSharp
+        title: 'Configuraciones',
+        url: '/folder/Configuracion',
+        iosIcon: constructOutline,
+        mdIcon: constructSharp
       }
     ];
-    const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+    const labels = ['Etiqueta 1', 'Etiqueta 2', 'Etiqueta 3', 'Etiqueta 4', 'Etiqueta 5', 'Etiqueta 6'];
     
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
@@ -105,20 +105,20 @@ export default defineComponent({
       selectedIndex,
       appPages, 
       labels,
-      archiveOutline, 
-      archiveSharp, 
+      fitnessOutline, 
+      fitnessSharp, 
       bookmarkOutline, 
       bookmarkSharp, 
-      heartOutline, 
-      heartSharp, 
-      mailOutline, 
-      mailSharp, 
-      paperPlaneOutline, 
-      paperPlaneSharp, 
-      trashOutline, 
-      trashSharp, 
-      warningOutline, 
-      warningSharp,
+      barChartOutline, 
+      barChartSharp, 
+      homeOutline, 
+      homeSharp, 
+      personOutline, 
+      personSharp, 
+      constructOutline, 
+      constructSharp, 
+      scaleOutline, 
+      scaleSharp,
       isSelected: (url: string) => url === route.path ? 'selected' : ''
     }
   }
