@@ -4,7 +4,10 @@
       <ion-menu content-id="main-content" type="overlay">
         <ion-content>
           <ion-list id="inbox-list">
-            <ion-list-header><img src="assets/img/covid_logo.png" width="50" alt=""> Health Companion</ion-list-header>
+            <ion-list-header>
+              <img src="assets/img/covid_logo.png" width="50" alt="">
+              <ion-label>Risk-19</ion-label>
+              </ion-list-header>
             <ion-note>Coders Logia TM</ion-note>
   
             <ion-menu-toggle auto-hide="false" v-for="(p, i) in appPages" :key="i">
@@ -16,7 +19,7 @@
           </ion-list>
   
           <ion-list id="labels-list">
-            <ion-list-header>Etiquetas</ion-list-header>
+            <ion-list-header>Labels</ion-list-header>
   
             <ion-item v-for="(label, index) in labels" lines="none" :key="index">
               <ion-icon slot="start" :ios="bookmarkOutline" :md="bookmarkSharp"></ion-icon>
@@ -56,38 +59,38 @@ export default defineComponent({
     const selectedIndex = ref(0);
     const appPages = [
       {
-        title: 'Inicio',
-        url: '/folder/Inicio',
+        title: 'Main',
+        url: '/folder/Main',
         iosIcon: homeOutline,
         mdIcon: homeSharp
       },
       {
-        title: 'Usuario',
-        url: '/folder/Usuario',
+        title: 'Profile',
+        url: '/folder/Profile',
         iosIcon: personOutline,
         mdIcon: personSharp
       },
       {
-        title: 'Estadisticas',
-        url: '/folder/Estadisticas',
+        title: 'Statics',
+        url: '/folder/Statics',
         iosIcon: barChartOutline,
         mdIcon: barChartSharp
       },
       {
-        title: 'Previsiones',
-        url: '/folder/Previsiones',
+        title: 'Forecasts',
+        url: '/folder/Forecasts',
         iosIcon: fitnessOutline,
         mdIcon: fitnessSharp
       },
       {
-        title: 'Cálculo de riesgo',
-        url: '/folder/Riesgo',
+        title: 'Risk calculation',
+        url: '/folder/Risk',
         iosIcon: scaleOutline,
         mdIcon: scaleSharp
       },
       {
-        title: 'Configuraciones',
-        url: '/folder/Configuracion',
+        title: 'Settings',
+        url: '/folder/Settings',
         iosIcon: constructOutline,
         mdIcon: constructSharp
       }
@@ -126,6 +129,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+ion-list-header {
+     display: flex;
+     align-items: center;
+}
+
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }

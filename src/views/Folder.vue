@@ -16,8 +16,11 @@
         </ion-toolbar>
       </ion-header>
 
-      <div id="container" v-if="$route.params.id == 'Inicio'">
+      <div id="container" v-if="$route.params.id == 'Main'">
         <!--// INICIO //-->
+      </div>
+
+      <div id="container" v-if="$route.params.id == 'Home'">
         <ion-card v-if="login">
           <ion-card-header>
             <ion-card-title>Login</ion-card-title>
@@ -61,7 +64,15 @@
               style="margin-top: 1%"
               v-if="lgNotFound"
             >
-              Usuario / email no encontrado.
+              User / email not found.
+            </div>
+            <div
+              class="alert alert-danger"
+              role="alert"
+              style="margin-top: 1%"
+              v-if="lgNotFound2"
+            >
+              Incorrect password.
             </div>
           </ion-card-content>
         </ion-card>
@@ -211,156 +222,180 @@
           </ion-card-header>
 
           <ion-card-content>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="stds"
+                  @click="fnSelect('stds')"
                 />
-                <label class="form-check-label" for="invalidCheck" >
+                <label class="form-check-label" for="invalidCheck">
                   - STDs
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="cancer"
+                  @click="fnSelect('cancer')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Cancer
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="mobesity"
+                  @click="fnSelect('mobesity')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Morbid obesity
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="diabetes"
+                  @click="fnSelect('diabetes')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Diabetes
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="hypertension"
+                  @click="fnSelect('hypertension')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Hypertension
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="asthma"
+                  @click="fnSelect('asthma')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Asthma
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="pneumonia"
+                  @click="fnSelect('pneumonia')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Pneumonia
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="allergy"
+                  @click="fnSelect('allergy')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Allergy
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="hattack"
+                  @click="fnSelect('hattack')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Having suffered a heart attack.
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="surgeries"
+                  @click="fnSelect('surgeries')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Have undergone surgeries
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="vaccinated"
+                  @click="fnSelect('vaccinated')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - Vaccinated
                 </label>
               </div>
             </div>
-            <div class="col-12" style="text-align: left;">
+            <div class="col-12" style="text-align: left">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
+                  v-model="noneotl"
+                  @click="fnSelect('noneotl')"
                 />
                 <label class="form-check-label" for="invalidCheck">
                   - None of the list.
@@ -368,6 +403,12 @@
               </div>
             </div>
             <button class="btn btn-primary btn-sm" @click="fnHealth()">
+              <img
+                src="assets/img/loader.gif"
+                width="15"
+                alt=""
+                v-if="loader2"
+              />
               Save
             </button>
 
@@ -375,39 +416,46 @@
               class="alert alert-success"
               role="alert"
               style="margin-top: 1%"
-              v-if="lgNotFound"
+              v-if="success2"
             >
-              Health saved!
+              Data saved!
             </div>
           </ion-card-content>
         </ion-card>
+        <ion-card v-if="status">
+          <ion-card-header>
+            <ion-card-title>Status</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content> </ion-card-content>
+        </ion-card>
       </div>
 
-      <div id="container" v-if="$route.params.id == 'Usuario'">
+      <div id="container" v-if="$route.params.id == 'Profile'">
         <!--// USUARIO //-->
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <!--// CONTENIDO AQUI XD //-->
       </div>
 
-      <div id="container" v-if="$route.params.id == 'Estadisticas'">
+      <div id="container" v-if="$route.params.id == 'Statics'">
         <!--// ESTADISTICAS //-->
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <!--// CONTENIDO AQUI XD //-->
       </div>
 
-      <div id="container" v-if="$route.params.id == 'Previsiones'">
+      <div id="container" v-if="$route.params.id == 'Forecasts'">
         <!--// PREVISIONES //-->
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <!--// CONTENIDO AQUI XD //-->
       </div>
 
-      <div id="container" v-if="$route.params.id == 'Riesgo'">
+      <div id="container" v-if="$route.params.id == 'Risk'">
         <!--// CALCULO DE RIESGO //-->
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <!--// CONTENIDO AQUI XD //-->
       </div>
 
-      <div id="container" v-if="$route.params.id == 'Configuracion'">
+      <div id="container" v-if="$route.params.id == 'Settings'">
         <!--// CONFIGURACIONES //-->
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <!--// CONTENIDO AQUI XD //-->
@@ -415,7 +463,15 @@
 
       <!--// BOTON FLOTANTE //-->
       <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button color="dark" @click="$router.push('Home')">
+        <ion-fab-button
+          color="dark"
+          @click="
+            $router.push('Home'),
+              (login = true),
+              (formHealth = false),
+              (formRegistro = false)
+          "
+        >
           <i class="fas fa-home"></i>
         </ion-fab-button>
       </ion-fab>
@@ -458,7 +514,7 @@ class Data {
     allergy,
     hattack,
     surgeries,
-    vaccinated,
+    vaccinated
   ) {
     this.name = name;
     this.lastname = lastname;
@@ -503,15 +559,20 @@ export default {
       loged: false,
       contries: countries,
 
+      //Status
+      status: false,
+
       //User data
       userData: [],
       chkUser: false,
+      userId: "",
 
       //Login Form
       lgUser: "",
       lgPassword: "",
       lgNotFound: false,
-      login: false,
+      lgNotFound2: false,
+      login: true,
 
       //Register Form
       formRegistro: false,
@@ -525,7 +586,7 @@ export default {
       rgTermChek: false,
 
       //Health Form
-      formHealth: true,
+      formHealth: false,
       stds: false,
       cancer: false,
       mobesity: false,
@@ -542,9 +603,11 @@ export default {
       //Loaders
       mainLoader: false,
       loader1: false,
+      loader2: false,
 
       //Success
       success1: false,
+      success2: false,
 
       //Fails
       fail1: false,
@@ -565,19 +628,61 @@ export default {
     },
 
     fnLogin() {
-      let user = "";
+      let userId = "";
+      this.lgNotFound = false;
+      this.lgNotFound2 = false;
+      this.userData = [];
 
       for (let i = 0; i < this.datos.length; i++) {
         const element = this.datos[i];
         if (element.user == this.lgUser || element.email == this.lgUser) {
-          user = element.user;
-          console.log(user);
+          userId = element._id;
+          break;
         }
       }
-    },
 
-    fnLstNone(){
-      console.log("ok");
+      if (userId == "") {
+        this.lgNotFound = true;
+      }
+
+      if (userId != "") {
+        for (let i = 0; i < this.datos.length; i++) {
+          const element = this.datos[i];
+          if (element._id == userId && element.password == this.lgPassword) {
+            this.status = true;
+            this.login = false;
+
+            this.userData.push({
+              id: element._id,
+              name: element.name,
+              lastname: element.lastname,
+              age: element.age,
+              city: element.city,
+              country: element.country,
+              email: element.email,
+              user: element.user,
+              password: element.password,
+              stds: element.stds,
+              cancer: element.cancer,
+              mobesity: element.mobesity,
+              diabetes: element.diabetes,
+              hypertension: element.hypertension,
+              asthma: element.asthma,
+              pneumonia: element.pneumonia,
+              allergy: element.allergy,
+              hattack: element.hattack,
+              surgeries: element.surgeries,
+              vaccinated: element.vaccinated,
+            });
+            break;
+          }
+
+          if (element._id == userId && element.password != this.lgPassword) {
+            this.lgNotFound2 = true;
+            break;
+          }
+        }
+      }
     },
 
     fnTermChek() {
@@ -589,6 +694,7 @@ export default {
     },
 
     fnRegister() {
+      let user = "";
       let chek = false;
       let chek2 = false;
       let chek3 = false;
@@ -625,6 +731,7 @@ export default {
       }
 
       if (chek && chek2 && chek3) {
+        user = this.rgUser;
         this.data = new Data();
         this.data.name = this.rgName;
         this.data.lastname = this.rgLastName;
@@ -641,7 +748,15 @@ export default {
             this.loader1 = false;
             this.success1 = true;
             this.formRegistro = false;
-            this.formHealth = true; 
+            this.formHealth = true;
+
+            for (let i = 0; i < this.datos.length; i++) {
+              const element = this.datos[i];
+              if (element.user == user) {
+                this.userId = element._id;
+                break;
+              }
+            }
 
             this.rgName = "";
             this.rgLastName = "";
@@ -655,10 +770,10 @@ export default {
       }
     },
 
-    fnHealth(){
+    fnHealth() {
+      this.loader2 = true;
 
-
-      this.data = new Data;
+      this.data = new Data();
       this.data.stds = this.stds;
       this.data.cancer = this.cancer;
       this.data.mobesity = this.mobesity;
@@ -671,14 +786,79 @@ export default {
       this.data.surgeries = this.surgeries;
       this.data.vaccinated = this.vaccinated;
 
-      axios.post(this.api, this.data).then((res)=>{
+      axios.put(this.api + "/" + this.userId, this.data).then((res) => {
         console.log(res);
 
-        axios.get(this.api).then((res)=>{
+        axios.get(this.api).then((res) => {
           this.datos = res.data;
-        })
-      })
-    }
+          this.loader2 = false;
+          this.success2 = true;
+        });
+      });
+    },
+
+    fnSelect(selection) {
+      switch (selection) {
+        case "stds":
+          this.stds = true;
+          this.noneotl = false;
+          break;
+        case "cancer":
+          this.cancer = true;
+          this.noneotl = false;
+          break;
+        case "mobesity":
+          this.mobesity = true;
+          this.noneotl = false;
+          break;
+        case "diabetes":
+          this.diabetes = true;
+          this.noneotl = false;
+          break;
+        case "hypertension":
+          this.hypertension = true;
+          this.noneotl = false;
+          break;
+        case "asthma":
+          this.asthma = true;
+          this.noneotl = false;
+          break;
+        case "pneumonia":
+          this.pneumonia = true;
+          this.noneotl = false;
+          break;
+        case "allergy":
+          this.allergy = true;
+          this.noneotl = false;
+          break;
+        case "hattack":
+          this.hattack = true;
+          this.noneotl = false;
+          break;
+        case "surgeries":
+          this.surgeries = true;
+          this.noneotl = false;
+          break;
+        case "vaccinated":
+          this.vaccinated = true;
+          this.noneotl = false;
+          break;
+        case "noneotl":
+          this.noneotl = true;
+          this.stds = false;
+          this.cancer = false;
+          this.mobesity = false;
+          this.diabetes = false;
+          this.hypertension = false;
+          this.asthma = false;
+          this.pneumonia = false;
+          this.allergy = false;
+          this.hattack = false;
+          this.surgeries = false;
+          this.vaccinated = false;
+          break;
+      }
+    },
   },
 };
 </script>
