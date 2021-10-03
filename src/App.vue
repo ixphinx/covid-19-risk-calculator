@@ -5,8 +5,7 @@
         <ion-content>
           <ion-list id="inbox-list">
             <ion-list-header>
-              <img src="assets/img/covid_logo.png" width="50" alt="">
-              <ion-label>Risk-19</ion-label>
+              <img src="assets/img/covid_logo.png" width="200" alt="">
               </ion-list-header>
             <ion-note>Coders Logia TM</ion-note>
   
