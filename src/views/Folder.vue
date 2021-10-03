@@ -177,7 +177,7 @@
               style="margin-top: 1%"
               v-if="success1"
             >
-              User created successfully
+              Registred successfully!
             </div>
             <div
               class="alert alert-danger"
@@ -202,6 +202,182 @@
               v-if="fail3"
             >
               Agree the terms and conditions.
+            </div>
+          </ion-card-content>
+        </ion-card>
+        <ion-card v-if="formHealth">
+          <ion-card-header>
+            <ion-card-title>Health</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck" >
+                  - STDs
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Cancer
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Morbid obesity
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Diabetes
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Hypertension
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Asthma
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Pneumonia
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Allergy
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Having suffered a heart attack.
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Have undergone surgeries
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - Vaccinated
+                </label>
+              </div>
+            </div>
+            <div class="col-12" style="text-align: left;">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  - None of the list.
+                </label>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" @click="fnHealth()">
+              Save
+            </button>
+
+            <div
+              class="alert alert-success"
+              role="alert"
+              style="margin-top: 1%"
+              v-if="lgNotFound"
+            >
+              Health saved!
             </div>
           </ion-card-content>
         </ion-card>
@@ -250,6 +426,7 @@
 
 <script>
 import axios from "axios";
+import countries from "../json/countries.json";
 
 import {
   IonButtons,
@@ -271,7 +448,17 @@ class Data {
     email,
     user,
     password,
-    riskscore
+    stds,
+    cancer,
+    mobesity,
+    diabetes,
+    hypertension,
+    asthma,
+    pneumonia,
+    allergy,
+    hattack,
+    surgeries,
+    vaccinated,
   ) {
     this.name = name;
     this.lastname = lastname;
@@ -281,7 +468,17 @@ class Data {
     this.email = email;
     this.user = user;
     this.password = password;
-    this.riskscore = riskscore;
+    this.stds = stds;
+    this.cancer = cancer;
+    this.mobesity = mobesity;
+    this.diabetes = diabetes;
+    this.hypertension = hypertension;
+    this.asthma = asthma;
+    this.pneumonia = pneumonia;
+    this.allergy = allergy;
+    this.hattack = hattack;
+    this.surgeries = surgeries;
+    this.vaccinated = vaccinated;
   }
 }
 
@@ -304,6 +501,7 @@ export default {
       push: false,
       data: new Data(),
       loged: false,
+      contries: countries,
 
       //User data
       userData: [],
@@ -313,7 +511,7 @@ export default {
       lgUser: "",
       lgPassword: "",
       lgNotFound: false,
-      login: true,
+      login: false,
 
       //Register Form
       formRegistro: false,
@@ -327,6 +525,19 @@ export default {
       rgTermChek: false,
 
       //Health Form
+      formHealth: true,
+      stds: false,
+      cancer: false,
+      mobesity: false,
+      diabetes: false,
+      hypertension: false,
+      asthma: false,
+      pneumonia: false,
+      allergy: false,
+      hattack: false,
+      surgeries: false,
+      vaccinated: false,
+      noneotl: false,
 
       //Loaders
       mainLoader: false,
@@ -365,8 +576,12 @@ export default {
       }
     },
 
-    fnTermChek(){
-      if (this.rgTermChek){
+    fnLstNone(){
+      console.log("ok");
+    },
+
+    fnTermChek() {
+      if (this.rgTermChek) {
         this.rgTermChek = false;
       } else {
         this.rgTermChek = true;
@@ -382,7 +597,7 @@ export default {
       this.fail3 = false;
       this.loader1 = true;
 
-      if (this.rgTermChek){
+      if (this.rgTermChek) {
         chek3 = true;
       }
 
@@ -425,6 +640,8 @@ export default {
             this.datos = res.data;
             this.loader1 = false;
             this.success1 = true;
+            this.formRegistro = false;
+            this.formHealth = true; 
 
             this.rgName = "";
             this.rgLastName = "";
@@ -432,10 +649,36 @@ export default {
             this.rgContry = "";
             this.rgUser = "";
             this.rgPassword = "";
+            this.rgRePassword = "";
           });
         });
       }
     },
+
+    fnHealth(){
+
+
+      this.data = new Data;
+      this.data.stds = this.stds;
+      this.data.cancer = this.cancer;
+      this.data.mobesity = this.mobesity;
+      this.data.diabetes = this.diabetes;
+      this.data.hypertension = this.hypertension;
+      this.data.asthma = this.asthma;
+      this.data.pneumonia = this.pneumonia;
+      this.data.allergy = this.allergy;
+      this.data.hattack = this.hattack;
+      this.data.surgeries = this.surgeries;
+      this.data.vaccinated = this.vaccinated;
+
+      axios.post(this.api, this.data).then((res)=>{
+        console.log(res);
+
+        axios.get(this.api).then((res)=>{
+          this.datos = res.data;
+        })
+      })
+    }
   },
 };
 </script>
